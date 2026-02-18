@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Ayuda de Inled",
   "colors": {
     "primary": "#38b6ff",
     "light": "#38b6ff",
     "dark": "#38b6ff"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/INLED_simple-removebg-preview.png",
   "navigation": {
     "tabs": [
       {
