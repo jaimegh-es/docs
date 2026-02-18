@@ -116,7 +116,6 @@
     }
   },
   "background": {
-    "image": "/images/better.inled.png",
     "decoration": "gradient"
   },
   "appearance": {
