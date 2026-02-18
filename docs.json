@@ -9,8 +9,20 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "pages": [
-      "inicio"
+    "tabs": [
+      {
+        "tab": "Inicio",
+        "pages": [
+          "inicio"
+        ]
+      },
+      {
+        "tab": "Edge AI",
+        "icon": "head-side-brain",
+        "pages": [
+          "introduccion"
+        ]
+      }
     ]
   },
   "logo": "/images/INLED_simple-removebg-preview.png",
