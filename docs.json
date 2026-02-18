@@ -9,16 +9,8 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
-      {
-        "tab": "Edge AI"
-      },
-      {
-        "tab": "Bienvenido",
-        "pages": [
-          ""
-        ]
-      }
+    "pages": [
+      "inicio"
     ]
   },
   "logo": "/images/INLED_simple-removebg-preview.png",
