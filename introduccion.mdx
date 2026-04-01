@@ -2,4 +2,19 @@
 title: "Introducción"
 ---
 
-¿Por qué hacer una plataforma de IA completamente local?
+Edge AI es una plataforma de chatbot IA de ejecución local, es decir, se ejecuta en tu dispositivo y justamente en tu navegador.
+
+Es 100% privado. Si te das cuenta, no se envían tus conversaciones a ningún servidor. Ni siquiera tenemos herramientas de analítica.
+
+Para ello nos valemos de tecnologías como Wllama (para la ejecución en WASM) y WebLLM. Estamos probando, aún muy beta, una actualización para permitir a Wllama ejecutar .gguf en WebGPU en vez de en WASM, para acelerar la inferencia al paralelizar los procesos.
+
+Las funciones de Edge AI son las siguientes:
+
+- Puedes chatear en base a documentos PDF, TXT o MD que subas (recomendamos formarto MD)
+- Puedes chatear con conocimiento actualizado gracias a la potente búsqueda web de Edge AI
+- Puedes hablar por voz con la IA (actualmente utiliza el STT y TTS del sistema operativo, aún no hemos implementado compatibilidad con modelos de voz)
+- Puedes crear tus propios chatbots para tu página web. Este será un único archivo HTML que podrás embeber en tu página web y funcionará en cualquier lado. Toda tu base de conocimiento va harcodeada en el html de manera que nosotros no vemos nada del conocimiento que le aportas a la IA.
+- Tiene memoria. Es decir, aprende sobre tí a medida que conversas. esta memoria es genera para todos los chats.
+- Permite usar proveedores de inferencia local como Ollama
+- Puedes añadir tus servidores MCP personalizados
+- Los ajustes del RAG son 100% personalizables.

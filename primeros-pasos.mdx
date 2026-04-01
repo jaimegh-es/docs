@@ -1,0 +1,57 @@
+---
+title: "Primeros pasos"
+---
+
+Vamos a guiarte en tus primeros pasos con Edge AI.
+
+## Wizard de inicio
+
+Al entrar en Edge AI te aparecerá un wizard que te guiará por el proceso de configuración de Edge AI. Tu primera tarea será seleccionar los modelos de IA que deseas. Ten en cuenta que los hay que se ejecutan en GPU y los hay que solo en CPU. Los que se ejecutan en GPU tienen fallbacks a CPU pero los que solo se ejecutan en CPU no se pueden ejecutar en GPU.
+
+<Frame>
+  ![Image](/images/image-1.png)
+</Frame>
+
+El propio sistema diagnosticará los recursos de tu máquina y te dará un porcentaje de compatibilidad de los modelos. Tienes un selector de filtros para filtrar entre modelos que se ejecutan en GPU/CPU o todos.
+
+El siguiente paso es descargar la extensión para que la IA pueda navegar por páginas.
+
+¿Por qué una extensión si otras IAs ya navegan por páginas sin una extensión? Porque esas IAs usan proxys de sus empresas que registran todo el historial de navegación mientars que si la IA navega todo en tu propio navegador no serán necesarios proxys para evitar el CORS.
+
+<Frame>
+  ![Image](/images/image-2.png)
+</Frame>
+
+La extensión es muy fácil de instalar. Aún no la hemos subido a la Chrome Web Store. En unos meses la subiremos.
+
+Tienes que bajarte el zip, descomprimirlo y en chrome://extensions activar el modo desarrollador y subir la carpeta descomprimida. Para mayor seguridad, en caso de que no te fíes (comprendemos que no es la mejor manera de instalar una extensión), puedes subirla a Virustotal para que la analice. Envíanos el resultado si no te convence.
+
+<Frame>
+  ![Image](/images/image-3.png)
+</Frame>
+
+Una vez instalada debes copiar su ID y pegarlo en la página de Edge AI (es la manera en la que puede establecer comunicación la página con la extensión.
+
+<Frame>
+  ![Image](/images/image-4.png)
+</Frame>
+
+<Info>
+  Si te da error diciendo que no logra establecer conexión con la extensión (probablemente haya sido un cambio que hemos hecho en la última versión) tú recarga la página y si te aparece el mensaje de "Extensión Conectada" es que ya funciona. Si no logra conectar con la extensión alguna vez tú recarga la página. 
+
+  <Frame>
+    ![Image](/images/image-5.png)
+  </Frame>
+</Info>
+
+## La interfaz una vez dentro
+
+<Frame>
+  ![Image](/images/image-7.png)
+</Frame>
+
+Por simplificar mucho las cosas:
+
+1. El selector de modos de chat. Puedes cambiar entre búsqueda web, chat normal o búsqueda en documentos así como el modo voz contínua (tú hablas y él responde por voz), modo live (como Gemini LIVE) y modo dictar (que transcribe al cuadro de texto lo que tú dictes)
+2. Esta es la parte de la barra lateral donde se realizan todas las configuraciones. No es difícil de entender así que puedes ir cotilleando cada botón y ver lo que hace.
+3. Lista de chats (el nombre de los chats de genera dinámicamente con IA, como en los primeros años de ChatGPT)

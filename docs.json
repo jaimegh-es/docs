@@ -19,7 +19,8 @@
       {
         "tab": "Edge AI",
         "pages": [
-          "introduccion"
+          "introduccion",
+          "primeros-pasos"
         ]
       }
     ]
