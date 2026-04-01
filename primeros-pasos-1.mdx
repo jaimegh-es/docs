@@ -1,0 +1,97 @@
+---
+title: "Primeros pasos"
+---
+
+Gracias por escoger Agent Tunnel, nuestra solución para dar acceso a los agentes a dispositivos remotos mediante ssh, sftp y mutagen.
+
+Puede que al principio parezca un poco difícil configurar todo pero te vamos a guiar para que no sea así: allá vamos!
+
+<Frame>
+  ![Agent Tunnel](/images/agent-tunnel.png)
+</Frame>
+
+## Instalación
+
+Los prerrequisitos son:
+
+- Tener instalado Git
+- Disponer de ssh y mutagen instalados en el host
+- El remoto debe tener instalado sftp y openssh
+
+Busca en internet las instrucciones de instalación para tu sistema. Si tienes problemas no dudes en escribirnos, estaremos encantados de ayudarte.
+
+### Pasos rápidos
+
+En la web de Inled tenemos unos pasos rápidos que son los siguientes:
+
+Tienes que estar dentro de una carpeta
+
+```text
+mkdir agentunnel
+```
+
+Inicializa git
+
+```text
+git init
+```
+
+Clona el repo (así puedes actualizarlo sin problemas)
+
+```text
+git clone https://github.com/InledGroup/agent-tunnel.git
+```
+
+Permite que el script [start-tunnel.sh](http://start-tunnel.sh) sea ejecutable
+
+```text
+chmod +x start-bridge.sh
+```
+
+Inicia el servidor backend y el frontend
+
+```text
+./start-bridge.sh
+```
+
+Esto te levantará dos servidores. Tú tienes que acceder al de localhost:4321. Si tienes otros servidores ocupando el puerto 4321 es muy recomendable que los apagues para que el servidor nuestro no tenga que escoger otro puerto ya que en ese caso fallaría.
+
+Per sé el script de inicio del bridge ya apaga todos los servidores que ocupen el puerto.
+
+<Frame>
+  ![Image](/images/image-8.png)
+</Frame>
+
+Tú debes entrar en localhost:4321
+
+Esto es lo que verás cuando entres en la web levantada:
+
+<Frame>
+  ![Image](/images/image-9.png)
+</Frame>
+
+En este caso yo tengo seleccionada una sesión ya creada para la demostración pero tú puedes crear una seleccionando "New Tunnel"
+
+<Info>
+  No puedes tener dos sesiones a la vez en Agent Tunnel y no pruebes a levantar dos servidores ya que eso puede acabar como el rosario de la aurora. En próximas versiones intentaremos dar soporte a múltiples sesiones.
+</Info>
+
+Deberás rellenar los siguientes campos para realizar una conexión satisfactoria:
+
+- **Friendly name:** Nombre para la conexión (por ejemplo: Router Admin)
+- **Remote IP o Domain:** La IP del remoto o su dominio
+- **Usuario y contraseña** con los que te quieres loguear
+- **Comandos excluidos:** comandos que solo se ejecutarán en el host local, que no se envían al remoto (normalmente los que se usan para ejecutar el agente de IA)
+- **Local working directory:** directorio en el que ejecutarás el agente de IA y en el que hay que insertar los ficheros de configuración e instrucciones para el agente
+- **Directorio remoto:** directorio que queremos montar en el local que hemos seleccionado
+  <Info>
+    El directorio remoto solo será necesario configurarlo si tienes activa la sincronización del sistema de archivos remoto
+  </Info>
+- **Activar/desactivar el hook de terminal** para que los comandos que ejecutes manualmente también se envíen al remoto
+- **Nombre del fichero de instrucciones **que dependiendo de tu agente de IA que uses se llamará de un modo u otro. Los más usuales son [CLAUDE.md](http://CLAUDE.md) y [GEMINI.md](http://GEMINI.md)
+
+Solo te queda pulsar en Estabilish Connection para iniciarla o en Stop para apagarla
+
+<Frame>
+  ![Image](/images/image-10.png)
+</Frame>

@@ -22,6 +22,12 @@
           "introduccion",
           "primeros-pasos"
         ]
+      },
+      {
+        "tab": "Agent Tunnel",
+        "pages": [
+          "primeros-pasos-1"
+        ]
       }
     ]
   },
