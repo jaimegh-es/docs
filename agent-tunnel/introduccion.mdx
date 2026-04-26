@@ -1,0 +1,43 @@
+---
+title: "Introducción"
+description: "Qué es Agent Tunnel y cómo revoluciona el acceso remoto para Agentes de IA"
+---
+
+**Agent Tunnel** es una infraestructura de puente (bridge) diseñada específicamente para permitir que agentes de Inteligencia Artificial (como Gemini CLI, Claude Code o Cursor) operen en entornos remotos de forma transparente.
+
+<Frame>
+  ![Agent Tunnel Header](/images/agent-tunnel.png)
+</Frame>
+
+## ¿Por qué Agent Tunnel?
+
+Los agentes de IA suelen estar limitados al sistema de archivos local donde se ejecutan. Si necesitas que un agente analice código en un servidor, configure un router o despliegue una aplicación en la nube, normalmente tendrías que mover el agente al remoto (si es posible) o copiar archivos manualmente.
+
+Agent Tunnel rompe esta barrera creando un **entorno híbrido**:
+
+- **Ejecución de Comandos:** Intercepta los comandos que el agente intenta ejecutar localmente y los redirige via SSH al objetivo remoto.
+- **Sincronización de Archivos:** Gracias a **Mutagen**, los cambios que el agente hace en la carpeta local se replican en milisegundos en el remoto, y viceversa.
+- **Transparencia Total:** El agente "cree" que está trabajando en tu ordenador, pero sus efectos ocurren a miles de kilómetros.
+
+## Características Principales
+
+<CardGroup cols={2}>
+  <Card title="Multisesión" icon="layer-group">
+    Gestiona múltiples conexiones simultáneas a diferentes servidores desde un único panel.
+  </Card>
+  <Card title="Intercepción Inteligente" icon="terminal">
+    Hook de terminal compatible con Zsh y Bash para redirigir comandos automáticamente.
+  </Card>
+  <Card title="Sincronización Bidireccional" icon="arrows-rotate">
+    Sincronización de archivos en tiempo real con resolución de conflictos.
+  </Card>
+  <Card title="Modo SSH Nativo" icon="shield-check">
+    Usa tu configuración de `~/.ssh/config` para conexiones rápidas y seguras sin gestionar llaves manualmente.
+  </Card>
+</CardGroup>
+
+## ¿Cómo funciona?
+
+1. El **Servidor Bridge** (Node.js) gestiona las conexiones y los procesos de sincronización.
+2. La **Interfaz Web** (Astro) permite configurar y monitorizar los túneles.
+3. El **Script de Activación** (`activate.sh`) inyecta el entorno necesario en tu terminal para que la magia ocurra.

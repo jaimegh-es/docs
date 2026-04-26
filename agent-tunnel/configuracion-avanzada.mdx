@@ -1,0 +1,53 @@
+---
+title: "Configuración Avanzada"
+description: "Ajustes de SSH Nativo, Exclusiones y Sincronización"
+---
+
+Agent Tunnel ofrece opciones avanzadas para adaptarse a flujos de trabajo profesionales y entornos de red complejos.
+
+## Modo SSH Nativo
+
+Si ya utilizas SSH con frecuencia, es probable que tengas configurado tu archivo `~/.ssh/config` con alias, llaves específicas y saltos de red (Jump Hosts).
+
+Al activar el **Native SSH Config** en la interfaz:
+- Agent Tunnel ignorará los campos de Usuario, Puerto y Contraseña del formulario.
+- Utilizará directamente el comando `ssh <host>` de tu sistema.
+- Es ideal para conectar con servidores que requieren llaves privadas protegidas por contraseña o configuraciones personalizadas.
+
+<Info>
+  En el campo "Remote Host", escribe el **Alias** que tengas definido en tu archivo de configuración SSH.
+</Info>
+
+---
+
+## Exclusión de Comandos
+
+En ocasiones, no quieres que *todos* los comandos se envíen al servidor remoto. Por ejemplo, el propio comando para invocar al agente de IA debe ejecutarse localmente.
+
+### Modos de Exclusión:
+1.  **Prefix (Prefijo):** Cualquier comando que *empiece* por la palabra clave se ejecutará localmente. Útil para herramientas (ej: `gemini`, `git`).
+2.  **Exact (Exacto):** Solo si el comando coincide letra por letra con la exclusión se ejecutará localmente.
+
+Puedes configurar estas exclusiones por cada túnel de forma independiente.
+
+---
+
+## Sincronización de Archivos (Mutagen)
+
+Por defecto, Agent Tunnel utiliza **Mutagen** para mantener tus archivos locales y remotos sincronizados.
+
+- **Ventaja:** El agente de IA puede leer archivos remotos a velocidad local.
+- **Modo SSH-Only:** Si desactivas la sincronización, Agent Tunnel funcionará solo como un ejecutor de comandos remotos. Los archivos de la carpeta local no se enviarán al servidor. Esto es útil para tareas puramente de administración de sistemas donde no necesitas editar código.
+
+---
+
+## Terminal Interception (Hook)
+
+En la sección de **Global Settings**, puedes activar o desactivar la intercepción automática.
+
+- **Activado (Default):** Agent Tunnel "escucha" lo que escribes y lo envuelve en un ejecutor remoto automáticamente.
+- **Desactivado:** Deberás usar el ejecutor manual si quieres enviar algo al remoto:
+  ```bash
+  /ruta/a/remote-exec.sh "comando"
+  ```
+  *(No recomendado para uso diario con agentes)*

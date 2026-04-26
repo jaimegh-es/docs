@@ -26,7 +26,9 @@
       {
         "tab": "Agent Tunnel",
         "pages": [
-          "primeros-pasos-1"
+          "agent-tunnel/introduccion",
+          "agent-tunnel/primeros-pasos",
+          "agent-tunnel/configuracion-avanzada"
         ]
       }
     ]

@@ -1,0 +1,69 @@
+---
+title: "Primeros pasos"
+description: "Configura tu primer túnel y empieza a trabajar de forma remota"
+---
+
+Gracias por escoger Agent Tunnel. Esta guía te ayudará a poner en marcha tu primer puente entre tu entorno local y un dispositivo remoto.
+
+<Frame>
+  ![Agent Tunnel Interface](/images/image-9.png)
+</Frame>
+
+## Instalación y Arranque
+
+### 1. Requisitos previos
+Asegúrate de tener instalados:
+- **Git**
+- **SSH** y **Mutagen** (en tu máquina local)
+- **OpenSSH** y **SFTP** (en el servidor remoto)
+
+### 2. Clonar e Iniciar
+Clona el repositorio y lanza el bridge:
+
+```bash
+git clone https://github.com/InledGroup/agent-tunnel.git
+cd agent-tunnel
+chmod +x start-bridge.sh
+./start-bridge.sh
+```
+
+El script `start-bridge.sh` se encargará de levantar el servidor backend (puerto 3456) y el frontend (puerto 4321). 
+
+Accede a la interfaz web en: [http://localhost:4321](http://localhost:4321)
+
+---
+
+## Creando tu primer Túnel
+
+En la interfaz web, pulsa en **"New Tunnel"** y rellena los campos principales:
+
+1.  **Friendly name:** Un nombre para identificar la conexión (ej: `servidor-produccion`).
+2.  **Remote Host:** IP o dominio del servidor remoto.
+3.  **Auth:** Usuario y contraseña (o usa el **Modo Nativo** si prefieres usar tus llaves SSH configuradas en el sistema).
+4.  **Local Working Directory:** Elige la carpeta de tu ordenador donde ejecutarás al agente.
+5.  **Remote Base Directory:** La carpeta del servidor remoto con la que quieres trabajar.
+
+Pulsa en **"ESTABLISH TUNNEL"**. Si todo es correcto, verás un mensaje de éxito y un modal con instrucciones.
+
+---
+
+## Activación en la Terminal
+
+Una vez establecido el túnel desde la web, Agent Tunnel habrá creado un archivo llamado `activate.sh` en tu carpeta local. Para empezar a trabajar, abre una terminal en esa carpeta y ejecuta:
+
+```bash
+source activate.sh
+```
+
+<Success>
+  ¡Listo! A partir de ahora, cualquier comando que escribas en esa terminal (ej: `ls`, `mkdir`, `npm install`) se ejecutará automáticamente en el servidor remoto.
+</Success>
+
+## Gestión Multisesión
+
+A diferencia de versiones anteriores, **Agent Tunnel permite múltiples sesiones activas simultáneamente**.
+
+- Puedes tener la **Carpeta A** conectada al **Servidor A**.
+- Puedes tener la **Carpeta B** conectada al **Servidor B**.
+
+Solo tienes que abrir una terminal diferente para cada carpeta y ejecutar `source activate.sh` en cada una. La interfaz web te mostrará el estado de todos tus túneles activos en la barra lateral.
