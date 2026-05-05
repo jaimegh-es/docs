@@ -1,0 +1,55 @@
+---
+title: "CodexBar GNOME Extension"
+description: "Display your AI provider usage metrics directly in the GNOME Shell panel."
+---
+
+# CodexBar GNOME Extension
+
+The CodexBar GNOME Extension is a companion to the [CodexBar CLI](https://github.com/steipete/codexbar). It allows you to monitor your AI usage (Gemini, OpenAI, etc.) without leaving your desktop environment.
+
+## Installation
+
+### 1. Install CodexBar CLI
+The extension requires the `codexbar` CLI to be installed on your system. We recommend using Homebrew:
+
+```bash
+brew install steipete/tap/codexbar
+```
+
+### 2. Install the Extension
+Download the latest release and run the installation script:
+
+```bash
+./install.sh
+```
+
+Restart GNOME Shell (`Alt+F2`, then type `r` and press `Enter` on X11, or log out and back in on Wayland).
+
+## Configuration
+
+Open the extension settings via the gear icon in the panel menu.
+
+### AI Providers
+You must configure your AI providers with the exact command needed to fetch JSON data. 
+
+**Example for Gemini:**
+```bash
+codexbar --provider gemini --source api --format json
+```
+
+> **Note:** The extension automatically resolves the path to `/home/linuxbrew/.linuxbrew/bin/codexbar` if you just use `codexbar`.
+
+### Display Modes
+In the settings, you can toggle between two display modes:
+- **Remaining (Default):** Shows how much quota you have left.
+- **Used:** Shows how much quota you have consumed.
+
+## Troubleshooting
+
+### "No output from command"
+- Ensure `codexbar` is installed and reachable.
+- Verify that your command includes `--format json`.
+- Check if you need to set up your API keys in the CLI first by running the command manually in a terminal.
+
+### Extension not showing up
+- Ensure you have enabled the extension in the GNOME Extensions app or via `gnome-extensions enable codexbar@inled.es`.
